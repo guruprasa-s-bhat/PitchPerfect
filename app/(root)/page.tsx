@@ -1,11 +1,22 @@
-import React from 'react'
+import SearchForm from "@/components/SearchForm";
+import React from "react";
 
-const Home = () => {
+const Home = async (searchParams: Promise<{ query?: string }>) => {
+  const query = (await searchParams).query;
   return (
-    <div>
-        <h1>homeeeeee</h1>
-    </div>
-  )
-}
+    <>
+      <section className="pink_container">
+        <h1 className="heading">
+          Pitch Your Startup, <br />
+          Connect With Enterpreneurs
+        </h1>
+        <p className="sub_heading !max-w-3xl">
+          Submit Ideas, Vote on Pitches, and Get Noticed in Virtual
+        </p>
+        <SearchForm query={query} />
+      </section>
+    </>
+  );
+};
 
-export default Home
+export default Home;
